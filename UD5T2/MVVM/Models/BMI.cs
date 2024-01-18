@@ -15,6 +15,7 @@ namespace UD5T2.MVVM.Models
         private float altura;
         private float peso;
 
+        // Evento que se lanza cuando la propiedad cambia
         public event PropertyChangedEventHandler? PropertyChanged;
 
         // Establecemos la propiedad Altura
@@ -24,6 +25,7 @@ namespace UD5T2.MVVM.Models
             set
             {
                 altura = value;
+                // LLamadas al método para comprobar si las propiedades han cambiado
                 OnPropertyChanged(nameof(Altura));
                 OnPropertyChanged(nameof(Resultado));
                 OnPropertyChanged(nameof(ResultadoBMI));
@@ -37,6 +39,7 @@ namespace UD5T2.MVVM.Models
             set
             {
                 peso = value;
+                // LLamadas al método para comprobar si las propiedades han cambiado
                 OnPropertyChanged(nameof(Peso));
                 OnPropertyChanged(nameof(Resultado));
                 OnPropertyChanged(nameof(ResultadoBMI));
@@ -95,6 +98,7 @@ namespace UD5T2.MVVM.Models
             }
         }
 
+        // Invoca a el evento cuando una propiedad cambia
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
